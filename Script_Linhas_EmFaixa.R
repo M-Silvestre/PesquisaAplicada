@@ -14,7 +14,7 @@ titulo<-paste(strwrap(
 #Gerando a primeira série
 plot(aprov_prob,type="l", axes = FALSE, main = titulo,
      sub = "Fonte: Projeto de Monitoria do Departamento de Estatística",
-     xlab="Período",ylab="Número de aprovados",col="blue",ylim=c(10,30))
+     xlab="Ano",ylab="Número de aprovados",col="blue",ylim=c(10,30))
 
 #Gerando o eixo x
 axis(1, at=1:4, lab=c("2015","2016","2017","2018"))
