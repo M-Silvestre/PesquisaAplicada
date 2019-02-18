@@ -22,7 +22,7 @@ titulo<-paste(strwrap(
 
 plot(aprov,type = "l", axes = FALSE, main = titulo,
      sub = "Fonte: Projeto de Monitoria do Departamento de Estatística",
-     xlab = "Período",ylab = "Número de aprovados",col = "blue",ylim = c(0,24))
+     xlab = "Ano",ylab = "Número de aprovados",col = "blue",ylim = c(0,24))
 
 #Gerando manualmente o eixo x com os pontos desejados
 axis(1, at=1:4, lab=c("2014","2015","2016","2017"))
