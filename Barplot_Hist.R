@@ -10,7 +10,7 @@ table(dados)
 #Frequências (obtidas pelo table())
 freq<-c(2,4,10,6,5,3)
 
-#Valores da variável
+#Valores que a variável assume
 valores<-c("0","1","2","3","4","5")
 
 #Alguns argumentos do comando barplot(): 
@@ -23,9 +23,10 @@ valores<-c("0","1","2","3","4","5")
 #                  horiz: se o gráfico é de colunas ou barras
 
 
-barplot(freq,main = "Cáries em crianças",
-        ylab="Frequência",xlab="N. de cáries", 
-        names=valores, space = 0.7)
+barplot(freq,main = "Cáries em crianças", sub = "Fonte: Dados fictícios",
+        ylab="Frequência", xlab="N. de cáries", 
+        names = valores, space = 0.7)
+
 
 #Histograma do Banco de Dados estudado em aula
 
@@ -38,14 +39,20 @@ dados02<-c(1.51, 1.65, 1.58, 1.54, 1.65, 1.40, 1.61, 1.08, 1.81, 1.38, 1.56, 1.8
            1.66, 1.36, 1.43, 1.26, 1.47, 1.52, 1.57, 1.33, 1.86, 1.75, 1.57, 1.83,
            1.52, 1.66, 1.90, 1.59, 1.47, 1.86, 1.73, 1.55, 1.52, 1.40, 1.86, 2.02)
 
-classes<-c("1,08-1,26", "1,26-1,44", "1,44-1,62", "1,62-1,80",
-        "1,80-1,98", "1,98-2,16","2,16-2,34")
+#Determinar os limites inferior e superior dos dados
+range(dados02)
+
+#Determinar o número ideal de classes
+classes <- round(1 + 3.3 * log10(length(dados02)), 0)
 
 #Determinar os intervalos de classe
-interv<-seq(from = 1.08, to = 2.34, length.out = 7)
+#Convém usar uma seqência em vez de digitar os limites
+#Alguns argumentos do comando seq():
+#                 from: Ponto inicial da sequência
+#                 to: Ponto final da sequência
+#                 length.out: quantos pontos na sequência (número de classes + 1)
+interv<-seq(from = 1.08, to = 2.34, length.out = (classes + 1))
 
-#Fixar os limites dos intervalos
-interv<-c(1.08, 1.26, 1.44, 1.62, 1.80, 1.98, 2.16, 2.34)
 
 #Alguns argumentos do comando hist(): 
 #                  <primeiro argumento>: vetor com os valores (e não as frequências)
@@ -54,9 +61,13 @@ interv<-c(1.08, 1.26, 1.44, 1.62, 1.80, 1.98, 2.16, 2.34)
 #                  xlab: Texto do eixo x
 #                  names: Nomes das colunas
 #                  break: breakpoints do histograma (limites das classes)
-#                  right: se os intervalos são fechados à direita
+#                  right: se os intervalos são fechados direita
 #                  space: espaçamento relativo à espessura das colunas
 #                  horiz: se o gráfico é de colunas ou barras
 
-hist(dados02, breaks = interv, main = "Nível de creatinina no sangue", right = FALSE,
-     include.lowest = TRUE)
+hist(x = dados02, breaks = interv, main = "Nível de creatinina no sangue",
+     sub = "Fonte: Dados fictícios", right = FALSE, include.lowest = TRUE,
+     xlab = "Creatinina no sangue (mg/mL)", ylab = "Frequência")
+
+#Fechando o gráfico
+box()
