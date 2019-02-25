@@ -46,8 +46,7 @@ axis(1, at = c(18, 19.5, 21, 22.5, 24,25.5, 27),
 #Gerando o eixo y
 axis(2, at = c(0,2,4,6,8,10,12), labels = c("0","","4","","8","","12"))
 
-# Fechando o gráfico
-box()
+
 
 
 
@@ -58,14 +57,15 @@ histograma<-hist(idade, breaks = interv, main = titulo, xlim = range(idade),
      sub = "Fonte: Dados fictícios", right = FALSE, include.lowest = TRUE,
      xlab = "Idade (anos)", ylab = "Frequência", col = "gray", axes = FALSE)
 
+#OBS: O comando polygon.freq() faz parte do pacote "agricolae"
+library(agricolae)
+
 #Cria-se o polígono após o histograma. Argumentos do comando polygon.freq():
 #             <primeiro argumento>: objeto historgama ao qual o polígono
 #                                   estará associado
 #             frequency: freqência a ser usada (1 - acumulada, 2 - relativa)
 #             col: cor
-polygon.freq(histograma, frequency=1,col="red")
-
-#OBS: O comando polygon.freq() faz parte do pacote "agricolae"
+polygon.freq(histograma, frequency=1,col="red", lwd = 2)
 
 #Gerando o eixo x
 axis(1, at = c(18, 19.5, 21, 22.5, 24,25.5, 27), 
@@ -74,14 +74,12 @@ axis(1, at = c(18, 19.5, 21, 22.5, 24,25.5, 27),
 #Gerando o eixo y
 axis(2, at = c(0,2,4,6,8,10,12), labels = c("0","","4","","8","","12"))
 
-# Fechando o gráfico
-box()
 
 
 
 #Ogiva de Galton ou Diagrama de Frequência Acumulada: Mesmo Banco que o Histograma
 
-#Gerando uma matriz de vetores de um elemento da classe e a frequência acumulada
+#Gerando uma matriz de vetores de um elemento da classe e a frequencia acumulada
 freq_idade<-c(rep(18.75, 12), rep(20.25, 16), rep(21.75, 24),
   rep(23.25, 27), rep(24.75, 28), rep(26.25, 30))
 
