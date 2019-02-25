@@ -1,7 +1,7 @@
 #Gráfico de colunas simples: Doenças crônicas em indivíduos
 
 #Vetor com as obsevações:
-dados<-c(0,1,4,2,0,4,2,3,0,0,1,2,1,0,1,5,2,4,4,3,1)
+dados<-c(0,1,4,2,0,4,2,3,0,0,1,2,1,0,1,5,2,5,3,1)
 
 #Frequências e valores
 table(dados)
