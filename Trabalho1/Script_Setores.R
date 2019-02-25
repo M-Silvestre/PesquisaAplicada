@@ -12,4 +12,4 @@ dados_set<-c(sum(dados > 3.5), sum(dados < 3.5) - sum(dados == 0.0), sum(dados =
 
 pie(dados_set, main = "Notas da primeira avaliação de Cálculo 2",
     labels = c("Notas acima de 70%", "Notas entre 0 e 70%", "Notas zero/Faltas"),
-    sub = "Fonte: SIGAA")
+    sub = "Fonte: SIGAA", col = c("gray90", "gray60", "gray30"))
